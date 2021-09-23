@@ -52,7 +52,6 @@ git clone https://github.com/ReaperClown/senai-contagem-pecas
 <code>
 cd senai-cadastro-eventos
 </code>
-<blockquote>Ou caso tenha renomeado a pasta, substitua <b>senai-cadastro-eventos</b> pelo seu nome</blockquote>
 </pre>
 </li>
 <li>
