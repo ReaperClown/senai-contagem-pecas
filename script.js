@@ -49,12 +49,14 @@ function addPieces() {
       if (answer === "1") {
         console.log(`Peça adicionada = ${answer} (A)`);
         peca1 = peca1 + parseInt(answer);
+        pecas = peca1 + peca2;
         console.log(`Quantidade de peças A = ${peca1}, total de peças = ${pecas}` + "\n");
         console.log("Retornando ao menu...");
         restart();
       } else if (answer === "2") {
         console.log(`Peça adicionada = ${answer} (B)`);
         peca2 = peca2 + parseInt(answer);
+        pecas = peca1 + peca2;
         console.log(`Quantidade de peças B = ${peca2}, total de peças = ${pecas}` + "\n");
         console.log("Retornando ao menu...");
         restart();
