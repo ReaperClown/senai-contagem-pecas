@@ -5,14 +5,16 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-let pecas = 0;
+let peca1 = 0;
+let peca2 = 0;
+let pecas = peca1 + peca2;
 
 const menu = {
   0: "0 = Encerrar o sistema e mostrar quantidade atual de peças." + "\n",
   1:
-    "1 = Acrescentar peças à contagem, '1' para adicionar uma e '2' para adicionar duas." +
+    "1 = Acrescentar peças à contagem, '1' para adicionar a primeira peça e '2' para adicionar a segunda peça." +
     "\n",
-  2: "2 = Mostrar quantidade de peças." + "\n",
+  2: "2 = Mostrar quantidade total de peças." + "\n",
 };
 
 let menuKeys = Object.keys(menu);
@@ -35,23 +37,29 @@ function restart() {
 
 function closeMenu() {
   console.log("\nVocê escolheu encerrar.");
-  console.log(`Quantidade de peças = ${pecas}`);
+  console.log(`Quantidade de peças A = ${peca1}, quantidade de peças B = ${peca2}, total de peças = ${pecas}`);
   console.log("Até a próxima!");
   rl.close();
 }
 
 function addPieces() {
   rl.question(
-    "\nVocê escolheu adicionar peças, digite 1 para adcionar uma peça e 2 para adicionar duas peças. Quantas peças quer adicionar? ",
+    "\nVocê escolheu adicionar peças, digite 1 para adcionar a peça A e 2 para adicionar a peça B. Qual peça quer adicionar? ",
     function (answer) {
-      if (answer === "1" || answer === "2") {
-        console.log(`Peças adicionadas = ${answer}`);
-        pecas = pecas + parseInt(answer);
-        console.log(`Quantidade de peças = ${pecas}` + "\n");
+      if (answer === "1") {
+        console.log(`Peça adicionada = ${answer} (A)`);
+        peca1 = peca1 + parseInt(answer);
+        console.log(`Quantidade de peças A = ${peca1}, total de peças = ${pecas}` + "\n");
+        console.log("Retornando ao menu...");
+        restart();
+      } else if (answer === "2") {
+        console.log(`Peça adicionada = ${answer} (B)`);
+        peca2 = peca2 + parseInt(answer);
+        console.log(`Quantidade de peças B = ${peca2}, total de peças = ${pecas}` + "\n");
         console.log("Retornando ao menu...");
         restart();
       } else {
-        console.log("Não posso adicionar essa quantidade de peças.");
+        console.log("Não conheço esta peça.");
         console.log("Reiniciando o sistema...");
         restart();
       }
@@ -61,7 +69,7 @@ function addPieces() {
 
 function showPieces() {
   console.log("\nVocê escolheu mostrar quantidade de peças.");
-  console.log(`Quantidade de peças = ${pecas}`);
+  console.log(`Quantidade de peças A = ${peca1}, quantidade de peças B = ${peca2}, total de peças = ${pecas}`);
   console.log("Retornando ao menu...");
   restart();
 }
