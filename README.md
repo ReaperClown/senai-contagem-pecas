@@ -15,6 +15,8 @@ respectiva peça;</li>
 <li>Mostrar a quantidade de cada peça acumulada.</li>
 </ul>
 
+<br/>
+
 <blockquote>
 <h5>Menu</h5>
 <p>
